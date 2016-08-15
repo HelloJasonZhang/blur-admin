@@ -1,0 +1,9 @@
+<div class="horizontal-scroll">
+    <div class="form-group select-page-size-wrap ">
+        <label>Rows on page
+            <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+            </select>
+        </label>
+    </div>
+    <div ui-grid="gridOptions" class="grid" ui-grid-pinning ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize></div>
+</div>

@@ -1,0 +1,59 @@
+<div class="horizontal-scroll">
+    <div class="form-group select-page-size-wrap ">
+        <label>Rows on page
+            <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+            </select>
+        </label>
+    </div>
+    <table class="table table-hover" st-table="smartTableData">
+        <thead>
+            <tr class="sortable ">
+                <th class="table-id" st-sort="id" st-sort-default="true">ID</th>
+                <th st-sort="part_number">Part Number</th>
+                <th st-sort="uom_name">UOM Name</th>
+                <th st-sort="category_name">Category</th>
+                <th st-sort="description">Description</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>
+                    <input st-search="part_number" placeholder="Search Part Number" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                    <input st-search="uom_name" placeholder="Search UOM Name" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                    <input st-search="category_name" placeholder="Search Category" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                    <input st-search="Description" placeholder="Search Description" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in resourceTypes">
+                <td class="table-id">{{item.id}}</td>
+                <td>{{item.part_number}}</td>
+                <td>{{item.category_name}}</td>
+                <td>{{item.description}}</td>
+                <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.uom_name}}</a></td>
+                <td>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" class="text-center">
+                    <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
