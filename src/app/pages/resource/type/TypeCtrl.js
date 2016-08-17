@@ -9,8 +9,8 @@
         .controller('TypeCtrl', TypeCtrl);
 
     /** @ngInject */
-    function TypeCtrl($scope, ResourceTemplate) {
- console.log("========TypeCtrl==========");
+    function TypeCtrl($scope, $state, ResourceTemplate) {
+
         $scope.gridOptions = {
             enableSorting: true,
             enableFiltering: true,
@@ -38,6 +38,10 @@
         }, function(error) {
             console.log(error);
         });
+
+        $scope.viewType = function() {
+            $state.go('resources.createtype');
+        }        
 
     }
 

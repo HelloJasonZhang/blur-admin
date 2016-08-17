@@ -40,6 +40,12 @@
                 sidebarMeta: {
                     order: 0,
                 },
+            })            
+            .state('resources.createtype', {
+                url: '/types/:id',
+                controller: 'TypeCtrl',
+                templateUrl: 'app/pages/resource/type/type.detail.html',
+                title: 'Resource Type'
             });
     }
 })();

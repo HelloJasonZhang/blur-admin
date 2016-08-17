@@ -1,9 +1,37 @@
 <div class="horizontal-scroll">
-    <div class="form-group select-page-size-wrap ">
-        <label>Rows on page
-            <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
-            </select>
-        </label>
+    <div class="form-group">
+        <form class="form-inline">
+            <div class="form-group select-page-size-wrap">
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="ID">
+            </div>
+            <div class="form-group select-page-size-wrap">
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Serial number">
+            </div>
+            <div class="form-group select-page-size-wrap">
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Lot number">
+            </div>
+            <div class="form-group select-page-size-wrap">
+                <select class="form-control selectpicker show-tick" title="Resource status" selectpicker ng-model="resourceStatus" placeholder="Resource status">
+                    <option default>Available</option>
+                    <option>Allocated</option>
+                    <option>Inuse</option>
+                    <option>MRB</option>
+                    <option>Don't use</option>
+                </select>
+            </div>
+            <div class="form-group select-page-size-wrap">
+                <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]" placeholder="Rows on page">
+                </select>
+            </div>
+        </form>
     </div>
+    <ul class="btn-list clearfix">
+        <li>
+            <button type="button" class="btn btn-primary btn-with-icon"><i class="ion-android-download"></i>Search</button>
+        </li>
+        <li>
+            <button type="button" class="btn btn-primary btn-with-icon" ng-click="viewType()"><i class="ion-android-download"></i>Create</button>
+        </li>
+    </ul>
     <div ui-grid="gridOptions" class="grid" ui-grid-pinning ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize></div>
 </div>
